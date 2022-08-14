@@ -3,7 +3,7 @@ let game = {
     upgrades: {
         autoClicker: {
             amount: 0,
-            cost: 10,
+            cost: 100,
             pps: 1, //pixels per second
             hasun: false, //has unlocked
             unlocked: 1,
@@ -11,25 +11,51 @@ let game = {
         },
         pixelFactory: {
             amount: 0,
-            cost: 20,
-            pps: 10,
+            cost: 300,
+            pps: 5,
             hasun: false,
-            unlocked: 10,
+            unlocked: 100,
             name: "Pixel Factory"
         },
         pixelWorld: {
             amount: 0,
-            cost: 50,
-            pps: 200,
+            cost: 600,
+            pps: 10,
             hasun: false,
-            unlocked: 40,
+            unlocked: 300,
             name: "Pixel World"
+        },
+        turboclicker: {
+            amount: 0,
+            cost: 10000,
+            pps: 50,
+            hasun: false,
+            unlocked: 600,
+            name: "Turbo Clicker"
+        },
+        insaneclicker: {
+            amount: 0,
+            cost: 50000,
+            pps: 100,
+            hasun: false,
+            unlocked: 10000,
+            name: "Insane Clicker"
+        },
+        ultimateclicker: {
+            amount: 0,
+            cost: 7500000,
+            pps: 1500,
+            hasun: false,
+            unlocked: 50000,
+            name: "Ultimate Clicker"
         }
     },
     acheivs: [{ req: "game.pixels>0", gotten: false, text: "<p>You have made one Pixel!</p>" },
-     { req: "game.pixels>9", gotten: false, text: "<p>You have made 10 Pixels!</p>" },
-    { req: "game.pixels>100", gotten: false, text: "<p>You have made 100 Pixels!</p>" },
-    { req: "game.pixels>1000", gotten: false, text: "<p>You have made 1000 Pixels!</p>" }]
+     { req: "game.pixels>99", gotten: false, text: "<p>You have made 100 Pixels!</p>" },
+    { req: "game.pixels>999", gotten: false, text: "<p>You have made 1000 Pixels!</p>" },
+    { req: "game.pixels>9999", gotten: false, text: "<p>You have made 10000 Pixels!</p>" },
+    { req: "game.pixels>99999", gotten: false, text: "<p>You have made 100000 Pixels!</p>" },
+    { req: "game.pixels>999999", gotten: false, text: "<p>You have made 1000000 Pixels!</p>" }]
 };
 
 let delay = 0;

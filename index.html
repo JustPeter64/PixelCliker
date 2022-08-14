@@ -18,11 +18,18 @@
 </head>
 <body onload="updateCount()">
 
-    <h1>Pixel Clicker</h1>
 
-    <h2 id="pixels">You have 0 Pixels</h2>
-
-    <button onclick="game.pixels++">Generate 1 pixel</button>
+    <header>
+        <div class="header-decoration">
+            <h2 id="pixels" class="title">You have 0 Pixels</h2>
+        </div>
+    </header>
+    <nav>
+        <h1>Pixel Clicker</h1>
+        <!-- <h5>Current Pixels per Second</h5> -->
+    </nav>
+    
+    <button onclick="game.pixels++" id="clickme">Click me!</button>
 
     <div id="upgrades"></div>
 

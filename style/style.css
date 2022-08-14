@@ -1,6 +1,30 @@
-:root {
-    /* colors */
-    --normal-text--: #000;
-    --primary-color--: cornflowerblue;
-    --secondary-color--: beige;
+html {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+:root { 
+    --primary-text--: #ced4da ;
+    --secondary-text--: #ced4da;
+    --primary-color--: #212529;
+    --secondary-color--: #163d55;
+    --color-3--: #118edb98;
+    --color-4--: #457b9d;
+    --color-5--: #adb5bd;
+
+    --clickme-border-hover--: #ffd027;
+    --clickme-background-hover--: #41942c;
+    --clickme-border--: red;
+    --clickme-background--: #163d55;
 }
