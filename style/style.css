@@ -1,6 +1,6 @@
 :root {
-    /* text-colors: */
+    /* colors */
     --normal-text--: #000;
-    /* background-color*/
-    --body-background--: cornflowerblue;
+    --primary-color--: cornflowerblue;
+    --secondary-color--: beige;
 }

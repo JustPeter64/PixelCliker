@@ -3,7 +3,11 @@
 }
 
 body {
-    background-color: var(--body-background--);
+    background-color: var(--primary-color--);
+}
+
+h1{
+    color: var(--secondary-color--);
 }
 
 #upgrades {
@@ -30,6 +34,8 @@ body {
     border: 2px #000 solid;
     margin-left: 20vw;
     padding: 1vw;
+    text-align: center;
+    background-color: var(--secondary-color--);
 }
 
 #acheivs h3 {
