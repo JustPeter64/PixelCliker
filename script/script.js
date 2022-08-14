@@ -20,13 +20,16 @@ let game = {
         pixelWorld: {
             amount: 0,
             cost: 50,
-            pps: 20,
+            pps: 200,
             hasun: false,
             unlocked: 40,
             name: "Pixel World"
         }
     },
-    acheivs: [{ req: "game.pixels>0", gotten:false, text: "You have one Pixel!" }, { req: "game.pixels>9", gotten:false, text: "You have 10 Pixels!" }]
+    acheivs: [{ req: "game.pixels>0", gotten: false, text: "<p>You have made one Pixel!</p>" },
+     { req: "game.pixels>9", gotten: false, text: "<p>You have made 10 Pixels!</p>" },
+    { req: "game.pixels>100", gotten: false, text: "<p>You have made 100 Pixels!</p>" },
+    { req: "game.pixels>1000", gotten: false, text: "<p>You have made 1000 Pixels!</p>" }]
 };
 
 let delay = 0;
@@ -46,7 +49,7 @@ function update_upgrades() {
     let d = 0;
     for (i in game.upgrades) {
         if (game.upgrades[i].hasun) {
-            document.querySelector("#upgrades").innerHTML += `<br> <button onclick="buttonClicked('${i}')">${game.upgrades[i].name}</button> You have ${numberformat.format(game.upgrades[i].amount)}. Cost: ${numberformat.format(game.upgrades[i].cost)} <br>`;
+            document.querySelector("#upgrades").innerHTML += `<br> <button onclick="buttonClicked('${i}')">${game.upgrades[i].name}</button> <p>You have ${numberformat.format(game.upgrades[i].amount)}. Cost: ${numberformat.format(game.upgrades[i].cost)} </p><br>`;
             d += game.upgrades[i].pps * game.upgrades[i].amount;
         }
     }
@@ -65,7 +68,7 @@ function updateCount() {
 
         for (i in game.acheivs) {
             if (game1.acheivs[i] == null || game.acheivs[i].text != game1.acheivs[i].text) {
-                game1.acheivs[i] = game.acheivs[i]
+                game1.acheivs[i] = game.acheivs[i];
             }
         }
         game = game1;
@@ -75,7 +78,7 @@ function updateCount() {
         let lastsavedate = Number(Cookies.get("lasttime"));
         lastsavedate = Date.now() - lastsavedate;
         lastsavedate = Math.round(lastsavedate / 1000);
-        if (lastsavedate / 60 >= 1) {
+        if (lastsavedate / 60 >= 1) { // after 60 seconds
             game.pixels += lastsavedate * pps / 1.8;
             document.querySelector("#acheivs").innerHTML += `<br>While you where gone...<br> you got ${numberformat.format(lastsavedate * pps / 1.8)} Pixels`;
         }
@@ -87,11 +90,11 @@ function updateCount() {
         for (i in game.acheivs) {
             let b = new Function('return ' + game.acheivs[i].req);
             if (b() && !game.acheivs[i].gotten) {
-                game.acheivs[i].gotten == true;
-                document.querySelector("#acheivs").innerHTML += `<br> ACHEIVMENT UNLOCKED <br> ${game.acheivs[i].text}`;
+                game.acheivs[i].gotten = true;
+                document.querySelector("#acheivs").innerHTML += `<br> <h3>✧ ACHEIVMENT UNLOCKED ✧</h3> <br> ${game.acheivs[i].text}`;
             }
         }
-        document.querySelector("#pixels").innerHTML = "you have " + numberformat.format(Number(String(game.pixels).split(".")[0])) + " Pixels";
+        document.querySelector("#pixels").innerHTML = "You have " + numberformat.format(Number(String(game.pixels).split(".")[0])) + " Pixels";
         for (i in game.upgrades) {
             if (!game.upgrades[i].hasun && game.upgrades[i].unlocked <= game.pixels) {
                 game.upgrades[i].hasun = true;
